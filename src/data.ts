@@ -28,6 +28,12 @@ export const menu = [
         icon: "user.svg",
       },
       {
+        id: 5,
+        title: "Students",
+        url: "/students",
+        icon: "user.svg",
+      },
+      {
         id: 2,
         title: "Products",
         url: "/products",
@@ -45,6 +51,7 @@ export const menu = [
         url: "/posts",
         icon: "post2.svg",
       },
+
     ],
   },
   {
@@ -170,7 +177,7 @@ export const topDealUsers = [
 export const chartBoxUser = {
   color: "#8884d8",
   icon: "/userIcon.svg",
-  title: "Total Users",
+  title: "Total Students",
   number: "11.238",
   dataKey: "users",
   percentage: 45,

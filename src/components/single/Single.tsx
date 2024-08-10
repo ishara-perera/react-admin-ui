@@ -14,6 +14,7 @@ type Props = {
   img?: string;
   title: string;
   info: object;
+  data: {first_name: string, last_name: string, email: string};
   chart?: {
     dataKeys: { name: string; color: string }[];
     data: object[];
@@ -27,25 +28,30 @@ const Single = (props: Props) => {
       <div className="view">
         <div className="info">
           <div className="topInfo">
-            {props.img && <img src={props.img} alt="" />}
-            <h1>{props.title}</h1>
+            {/*{props.img && <img src={props.img} alt="" />}*/}
+            <h1>{props.data.first_name}</h1>
             <button>Update</button>
           </div>
           <div className="details">
-            {Object.entries(props.info).map((item) => (
-              <div className="item" key={item[0]}>
-                <span className="itemTitle">{item[0]}</span>
-                <span className="itemValue">{item[1]}</span>
-              </div>
-            ))}
+            <div className="item" >
+              <span className="itemTitle">{props.data.first_name}</span>
+              <span className="itemTitle">{props.data.last_name}</span>
+              <span className="itemTitle">{props.data.email}</span>
+            </div>
+            {/*{Object.entries(props.info).map((item) => (*/}
+            {/*  <div className="item" key={item[0]}>*/}
+            {/*    <span className="itemTitle">{item[0]}</span>*/}
+            {/*    <span className="itemValue">{item[1]}</span>*/}
+            {/*  </div>*/}
+            {/*))}*/}
           </div>
         </div>
-        <hr />
+        <hr/>
         {props.chart && (
-          <div className="chart">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart
-                width={500}
+            <div className="chart">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart
+                    width={500}
                 height={300}
                 data={props.chart.data}
                 margin={{
