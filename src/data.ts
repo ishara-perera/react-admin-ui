@@ -34,6 +34,12 @@ export const menu = [
         icon: "user.svg",
       },
       {
+        id: 6,
+        title: "Classrooms",
+        url: "/classrooms",
+        icon: "user.svg",
+      },
+      {
         id: 2,
         title: "Products",
         url: "/products",

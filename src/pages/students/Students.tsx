@@ -82,7 +82,7 @@ const Students = () => {
         (res) => res.json()
       ),
   });
-      console.log(data)
+
   return (
     <div className="users">
       <div className="info">

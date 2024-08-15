@@ -12,6 +12,8 @@ import Product from "./pages/product/Product";
 import {QueryClient, QueryClientProvider,} from "@tanstack/react-query";
 import Students from "./pages/students/Students.tsx";
 import Student from "./pages/student/Student.tsx";
+import Classrooms from "./pages/classrooms/Classrooms.tsx";
+import Classroom from "./pages/classroom/Classroom.tsx";
 
 
 const queryClient = new QueryClient();
@@ -52,6 +54,14 @@ function App() {
                 {
                     path: "/students",
                     element: <Students/>,
+                },
+                {
+                    path: "/classrooms",
+                    element: <Classrooms/>,
+                },
+                {
+                    path: "/classroom",
+                    element: <Classroom/>,
                 },
                 {
                     path: "/students/:id",
