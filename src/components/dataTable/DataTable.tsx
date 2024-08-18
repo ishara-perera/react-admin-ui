@@ -1,11 +1,8 @@
-import {
-  DataGrid,
-  GridColDef,
-  GridToolbar,
-} from "@mui/x-data-grid";
+import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 import "./dataTable.scss";
 import { Link } from "react-router-dom";
-import {useMutation, useQueryClient} from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useDeleteStudentMutation } from "../../data/student";
 // import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 type Props = {
@@ -15,24 +12,27 @@ type Props = {
 };
 
 const DataTable = (props: Props) => {
-
   // TEST THE API
 
   const queryClient = useQueryClient();
-  const mutation = useMutation({
-    mutationFn: (id: number) => {
-      return fetch(`http://localhost:8000/scts/${props.slug}/delete/${id}`, {
-        method: "delete",
-      });
-    },
-    onSuccess: ()=>{
-      queryClient.invalidateQueries([`all${props.slug}`]);
-    }
-  });
+  // const mutation = useMutation({
+  //   mutationFn: (id: number) => {
+  //     return fetch(`http://localhost:8000/scts/${props.slug}/delete/${id}`, {
+  //       method: "delete",
+  //     });
+  //   },
+  //   onSuccess: () => {
+  //     queryClient.invalidateQueries([`all${props.slug}`]);
+  //   },
+  // });
+
+  const { mutate: deleteStudent, isLoading: loading } =
+    useDeleteStudentMutation();
 
   const handleDelete = (id: number) => {
     // delete the item
-    mutation.mutate(id)
+    // mutation.mutate(id)
+    deleteStudent(id);
   };
 
   const actionColumn: GridColDef = {
@@ -49,7 +49,6 @@ const DataTable = (props: Props) => {
             <img src="/delete.svg" alt="" />
           </div>
         </div>
-
       );
     },
   };
