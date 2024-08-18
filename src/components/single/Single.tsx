@@ -34,9 +34,9 @@ const Single = (props: Props) => {
                     </div>
                     <div className="details">
                         <div className="item">
-                            {/*<span className="itemTitle">{props.data.first_name}</span>*/}
-                            {/*<span className="itemTitle">{props.data.last_name}</span>*/}
-                            {/*<span className="itemTitle">{props.data.email}</span>*/}
+                            <span className="itemTitle">{props.data.first_name}</span>
+                            <span className="itemTitle">{props.data.last_name}</span>
+                            <span className="itemTitle">{props.data.email}</span>
                         </div>
                         {/*{Object.entries(props.info).map((item) => (*/}
                         {/*  <div className="item" key={item[0]}>*/}
