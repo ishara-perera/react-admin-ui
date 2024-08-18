@@ -4,6 +4,7 @@ import "./students.scss";
 import { useState } from "react";
 import Add from "../../components/add/Add";
 import { useQuery } from "@tanstack/react-query";
+import { useStudentsQuery } from "../../data/student";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -75,13 +76,23 @@ const Students = () => {
 
   // TEST THE API
 
-  const { isLoading, data } = useQuery({
-    queryKey: ["allstudents"],
-    queryFn: () =>
-      fetch("http://localhost:8000/scts/students/").then(
-        (res) => res.json()
-      ),
+  // const { isLoading, data } = useQuery({
+  //   queryKey: ["allstudents"],
+  //   queryFn: () =>
+  //     fetch("http://localhost:8000/scts/students/").then((res) => res.json()),
+  // });
+
+  const { students, paginatorInfo, loading, error } = useStudentsQuery({
+    limit: 20,
+    // page,
+    // name: searchTerm,
+    // orderBy,
+    // sortedBy,
+    // language: locale,
   });
+
+  // if (loading) return <Loader text={t('common:text-loading')} />;
+  // if (error) return <ErrorMessage message={error.message} />;
 
   return (
     <div className="users">
@@ -91,10 +102,10 @@ const Students = () => {
       </div>
       {/*<DataTable slug="users" columns={columns} rows={data?.data} />*/}
       {/* TEST THE API */}
-      {isLoading ? (
+      {loading ? (
         "Loading..."
       ) : (
-        <DataTable slug="students" columns={columns} rows={data.data} />
+        <DataTable slug="students" columns={columns} rows={students} />
       )}
       {open && <Add slug="student" columns={columns} setOpen={setOpen} />}
     </div>

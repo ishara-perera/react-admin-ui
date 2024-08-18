@@ -1,6 +1,7 @@
 import { GridColDef } from "@mui/x-data-grid";
 import "./add.scss";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useCreateStudentMutation } from "../../data/student";
 
 type Props = {
   slug: string;
@@ -39,6 +40,9 @@ const Add = (props: Props) => {
       queryClient.invalidateQueries([`all${props.slug}s`]);
     },
   });
+
+  // const { mutate: createStudent, isLoading: creating } =
+  // useCreateStudentMutation();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
