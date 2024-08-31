@@ -75,7 +75,8 @@ export interface Student {
 export interface CreateStudentInput {
   first_name: string;
   last_name: string;
-  email: number;
+  email: string;
+  birth_date: Date;
 }
 
 export interface StudentQueryOptions extends QueryOptions {

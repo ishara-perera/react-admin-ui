@@ -28,7 +28,8 @@ export function crudFactory<Type, QueryParams extends LanguageParam, InputType>(
       return HttpClient.put<Type>(`${endpoint}/${id}`, input);
     },
     delete({ id }: { id: string }) {
-      return HttpClient.delete<boolean>(`${endpoint}/${id}`);
+      console.log("Delete in CRUD", id)
+      return HttpClient.delete<boolean>(`${endpoint}/delete/${id}`);
     },
   };
 }

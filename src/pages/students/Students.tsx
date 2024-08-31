@@ -5,6 +5,7 @@ import { useState } from "react";
 import Add from "../../components/add/Add";
 import { useQuery } from "@tanstack/react-query";
 import { useStudentsQuery } from "../../data/student";
+import StudentAdd from "../../components/add/StudentAdd.tsx";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -90,7 +91,7 @@ const Students = () => {
     // sortedBy,
     // language: locale,
   });
-
+console.log(students)
   // if (loading) return <Loader text={t('common:text-loading')} />;
   // if (error) return <ErrorMessage message={error.message} />;
 
@@ -107,7 +108,8 @@ const Students = () => {
       ) : (
         <DataTable slug="students" columns={columns} rows={students} />
       )}
-      {open && <Add slug="student" columns={columns} setOpen={setOpen} />}
+      {/*{open && <Add slug="student" columns={columns} setOpen={setOpen} />}*/}
+      {open && <StudentAdd slug="student" columns={columns} setOpen={setOpen} />}
     </div>
   );
 };

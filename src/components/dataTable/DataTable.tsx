@@ -29,10 +29,11 @@ const DataTable = (props: Props) => {
   const { mutate: deleteStudent, isLoading: loading } =
     useDeleteStudentMutation();
 
-  const handleDelete = (id: number) => {
+  const handleDelete = (id: string) => {
     // delete the item
     // mutation.mutate(id)
-    deleteStudent(id);
+    deleteStudent({id: id});
+    console.log(`S ID ${id}`);
   };
 
   const actionColumn: GridColDef = {

@@ -41,14 +41,28 @@ const Add = (props: Props) => {
     },
   });
 
-  // const { mutate: createStudent, isLoading: creating } =
-  // useCreateStudentMutation();
+  const { mutate: createStudent, isLoading: creating } =
+  useCreateStudentMutation();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const input = {
+      id: 111,
+      img: "",
+      last_name: "Hello",
+      first_name: "Test",
+      email: "testme@gmail.com",
+      age: 34,
+      phone: "123 456 789",
+      createdAt: "01.02.2023",
+      verified: true,
+    }
+
+    createStudent(input)
+
     //add new item
-    mutation.mutate();
+    // mutation.mutate();
     props.setOpen(false)
   };
   return (
